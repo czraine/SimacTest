@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { Product, ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [RouterLink, ButtonModule, TableModule],
+  imports: [RouterLink, ButtonModule, InputTextModule, TableModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })

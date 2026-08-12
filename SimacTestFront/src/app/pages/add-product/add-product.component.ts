@@ -49,7 +49,7 @@ export class AddProductComponent {
     if (form.invalid) {
       return;
     }
-
+console.log(form.value)
     this.saving = true;
     this.message = '';
 

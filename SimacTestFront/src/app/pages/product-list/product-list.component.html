@@ -9,13 +9,39 @@
       <p class="error">{{ errorMessage }}</p>
     }
 
-    <p-table [value]="products">
+    <p-table
+      #table
+      [value]="products"
+      [paginator]="true"
+      [rows]="5"
+      [rowsPerPageOptions]="[5, 10, 20]"
+      [globalFilterFields]="['name', 'price', 'quantity']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="search">
+          <i class="pi pi-search"></i>
+          <input
+            #searchInput
+            pInputText
+            type="text"
+            placeholder="Search by name, price or quantity"
+            (input)="table.filterGlobal(searchInput.value, 'contains')"
+          />
+        </div>
+      </ng-template>
+
       <ng-template pTemplate="header">
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th pSortableColumn="name">
+            Name <p-sortIcon field="name" />
+          </th>
+          <th pSortableColumn="price">
+            Price <p-sortIcon field="price" />
+          </th>
           <th>Description</th>
-          <th>Quantity</th>
+          <th pSortableColumn="quantity">
+            Quantity <p-sortIcon field="quantity" />
+          </th>
           <th>Actions</th>
         </tr>
       </ng-template>
