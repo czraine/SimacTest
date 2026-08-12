@@ -1,0 +1,38 @@
+.page {
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.products {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.header,
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header {
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.error {
+  color: #c62828;
+}
+
+p-table {
+  display: block;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,62 @@
+<main class="page">
+  <form #productForm="ngForm" (ngSubmit)="saveProduct(productForm)" class="product-form">
+    <h1>{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h1>
+
+    <label for="name">Name</label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      pInputText
+      [(ngModel)]="product.name"
+      required
+      minlength="2"
+      maxlength="100"
+    />
+
+    <label for="price">Price</label>
+    <p-inputNumber
+      inputId="price"
+      name="price"
+      [(ngModel)]="product.price"
+      [min]="0.01"
+      [minFractionDigits]="2"
+      mode="decimal"
+      required
+    />
+
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      name="description"
+      rows="4"
+      pInputTextarea
+      [(ngModel)]="product.description"
+      maxlength="500"
+    ></textarea>
+
+    <label for="quantity">Quantity</label>
+    <p-inputNumber
+      inputId="quantity"
+      name="quantity"
+      [(ngModel)]="product.quantity"
+      [min]="0"
+      [useGrouping]="false"
+      required
+    />
+
+    @if (message) {
+      <p-message [severity]="messageType" [text]="message" />
+    }
+
+    <p-button
+      type="submit"
+      [label]="isEditMode ? 'Save Changes' : 'Add Product'"
+      [icon]="isEditMode ? 'pi pi-save' : 'pi pi-plus'"
+      [loading]="saving"
+      [disabled]="productForm.invalid"
+    />
+
+    <a [routerLink]="isEditMode ? '/products' : '/'">Back</a>
+  </form>
+</main>

@@ -1,0 +1,16 @@
+# Frontend dependencies and builds
+SimacTestFront/node_modules/
+SimacTestFront/dist/
+SimacTestFront/.angular/
+
+# Backend builds
+SimacTest/target/
+
+# IDE files
+.idea/
+**/.idea/
+.vscode/
+
+# Local files
+*.log
+.env
